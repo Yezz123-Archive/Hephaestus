@@ -54,7 +54,7 @@ git clone https://github.com/yezz123/Hephaestus
 
 - Create & activate a python3 [virtual environment](https://docs.python.org/3/tutorial/venv.html) (optional, but very recommended).
 
-- Install requirements:
+- Install [requirements](requirements.txt):
 
 ```bash
 pip install -r requirements.txt
@@ -69,3 +69,7 @@ SQLALCHEMY_DATABASE_URI = "mysql+pymysql://username:password@db/Database_db"
 SQLALCHEMY_ECHO = False
 SQLALCHEMY_TRACK_MODIFICATIONS = False
 ```
+
+### Routes
+
+- "/" - show information's about what routes are available.
