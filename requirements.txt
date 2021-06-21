@@ -1,0 +1,7 @@
+Flask
+Flask-SQLAlchemy
+PyMySQL
+SQLAlchemy
+prometheus_flask_exporter
+
+

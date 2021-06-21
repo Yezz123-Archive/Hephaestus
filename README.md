@@ -24,12 +24,48 @@
 
 - To run the project you need docker-compose and run this command:
 
-```sh
+```bash
 docker-compose up -d
 ```
 
 - To stop:
 
-```sh
+```bash
 docker-compose down
+```
+
+## Requirements :rocket:
+
+- To start using Hephaestus try first to understand how Grafana & Prometheus work by reading some official docs here :
+
+- [Prometheus: Introduction](https://prometheus.io/docs/introduction/overview/)
+
+- [Get started or start exploring Grafana](https://grafana.com/docs/)
+
+- [Visualize almost anything with Grafana and Python](http://oz123.github.io/writings/2019-06-16-Visualize-almost-anything-with-Grafana-and-Python/index.html)
+
+### Installation
+
+- Get started by cloning the repository :
+
+```bash
+git clone https://github.com/yezz123/Hephaestus
+```
+
+- Create & activate a python3 [virtual environment](https://docs.python.org/3/tutorial/venv.html) (optional, but very recommended).
+
+- Install requirements:
+
+```bash
+pip install -r requirements.txt
+```
+
+- Then in your [app/**init**.py](app/__init__.py) change the MYSQL connection :
+
+```py
+db = SQLAlchemy()
+
+SQLALCHEMY_DATABASE_URI = "mysql+pymysql://username:password@db/Database_db"
+SQLALCHEMY_ECHO = False
+SQLALCHEMY_TRACK_MODIFICATIONS = False
 ```
