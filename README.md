@@ -72,4 +72,6 @@ SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 ### Routes
 
-- "/" - show information's about what routes are available.
+- "/" : show information's about what routes are available.
+
+- "/fibonacci/<int>" : the n-th fibbonaci number

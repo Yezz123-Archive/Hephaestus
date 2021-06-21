@@ -45,3 +45,19 @@ def fibonacci(n):
 
     return response
 
+
+@app.route("/fibonacci/<invalid_path_parameter>")
+def fibonacci_invalid_path(invalid_path_parameter):
+    response = jsonify(
+        message=(
+            "Size must be a positive integer. Actual {}".format(invalid_path_parameter)
+        )
+    )
+    response.status_code = 400
+
+    db.session.add(
+        RequestsModel(request.url, str(json.loads(response.get_data().decode("utf-8"))))
+    )
+    db.session.commit()
+
+    return response
