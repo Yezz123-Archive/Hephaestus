@@ -10,4 +10,26 @@
 
 - An Restful Api project developed with Flask.
 
-- I used [Prometheus](https://pypi.org/project/prometheus-flask-exporter/) and [Grafana](https://medium.com/swlh/create-grafana-dashboards-with-python-14a6962eb06c) for monitoring and containerization with Docker.
+- I used [Prometheus](https://prometheus.io/) and [Grafana](https://grafana.com/) for monitoring and containerization with Docker.
+
+### Monitoring
+
+- Using [Prometheus Flask exporter](https://pypi.org/project/prometheus-flask-exporter/) This library provides HTTP request metrics to export into Prometheus. It can also track method invocations using convenient functions.
+
+- Grafana is a multi-platform open source analytics and interactive visualization web application. It provides charts, graphs, and alerts for the web when connected to supported data sources.
+
+### containerization
+
+- Docker hosts and containers monitoring with Prometheus, Grafana, Flask, MySQL.
+
+- To run the project you need docker-compose and run this command:
+
+```sh
+docker-compose up -d
+```
+
+- To stop:
+
+```sh
+docker-compose down
+```
