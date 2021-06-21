@@ -70,6 +70,16 @@ SQLALCHEMY_ECHO = False
 SQLALCHEMY_TRACK_MODIFICATIONS = False
 ```
 
+### Curl
+
+- [Curl](https://curl.se/) is used in command lines or scripts to transfer data.
+
+> - curl -i -X GET "http://localhost:5000/"
+> - curl -i -X GET "http://localhost:5000/power/10/10"
+> - curl -i -X GET "http://localhost:5000/factorial/10"
+> - curl -i -X GET "http://localhost:5000/fibonacci/10"
+> - curl -i -X GET "http://localhost:5000/get_requests"
+
 ### Routes
 
 - **"/"** : show information's about what routes are available.
@@ -83,3 +93,13 @@ SQLALCHEMY_TRACK_MODIFICATIONS = False
 - **"/get_requests"** : show all requests saved in DB
 
 - **"/metric"** : show metrics
+
+### Ports
+
+- On port `9090` is a instance of `Prometheus` that collect metrics from the Flask app.
+
+- On port `3000` is an instance of `Grafana` that displays the data collected by Prometheus (user: admin, pass: admin).
+
+- To see the Grafana dashboard:
+
+- [localhost:3000/grafana](http://localhost:3000/grafana/d/_eX4mpl3/example-dashboard?orgId=1&refresh=5s)
