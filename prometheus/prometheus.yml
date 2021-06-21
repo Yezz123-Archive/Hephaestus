@@ -1,0 +1,16 @@
+global:
+  scrape_interval: 15s
+  external_labels:
+    monitor: "username-monitor"
+scrape_configs:
+  - job_name: "prometheus"
+    static_configs:
+      - targets: ["localhost:9090"]
+
+  - job_name: "Hephaestus"
+
+    dns_sd_configs:
+      - names: ["app"]
+        port: 5000
+        type: A
+        refresh_interval: 5s
