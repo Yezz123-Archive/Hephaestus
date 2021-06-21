@@ -1,0 +1,73 @@
+version: "3.5"
+
+services:
+  app:
+    image: python-server
+    build:
+      context: .
+    container_name: hephaestus
+    ports:
+      - 5000:5000
+    depends_on:
+      - db
+    volumes:
+      - ./:/var/www
+    tty: true
+    networks:
+      - hephaestus
+
+  db:
+    image: mysql:8.0
+    container_name: db
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_USER=
+      - MYSQL_PASSWORD=
+      - MYSQL_DATABASE=
+    ports:
+      - 3306:3306
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - hephaestus
+
+  prometheus:
+    image: prom/prometheus:v2.1.0
+    volumes:
+      - ./prometheus/prometheus.yml/:/etc/prometheus/prometheus.yml
+      - prometheus_data:/prometheus
+    command:
+      - "--config.file=/etc/prometheus/prometheus.yml"
+      - "--storage.tsdb.path=/prometheus"
+      - "--web.console.libraries=/usr/share/prometheus/console_libraries"
+      - "--web.console.templates=/usr/share/prometheus/consoles"
+      - "--web.external-url=http://localhost/prometheus"
+    ports:
+      - 9090:9090
+    depends_on:
+      - app
+    restart: always
+    networks:
+      - prometheus
+
+  grafana:
+    image: grafana/grafana
+    depends_on:
+      - prometheus
+    ports:
+      - 3000:3000
+    volumes:
+      - ./grafana/config.ini:/etc/grafana/grafana.ini
+      - ./grafana/datasource.yaml:/etc/grafana/provisioning/datasources/default.yaml
+      - ./grafana/dashboard.yaml:/etc/grafana/provisioning/dashboards/default.yaml
+      - ./grafana/dashboards:/var/lib/grafana/dashboards
+    networks:
+      - prometheus
+
+volumes:
+  db_data:
+  prometheus_data: {}
+  grafana_data: {}
+
+networks:
+  hephaestus:
