@@ -72,6 +72,14 @@ SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 ### Routes
 
-- "/" : show information's about what routes are available.
+- **"/"** : show information's about what routes are available.
 
-- "/fibonacci/<int>" : the n-th fibbonaci number
+- **"/fibonacci/<int>"** : the n-th fibonacci number.
+
+- **"/power/<float>/<float>"** : show power of first number to second number
+
+- **"/factorial/<int>"** : show the factorial of a number
+
+- **"/get_requests"** : show all requests saved in DB
+
+- **"/metric"** : show metrics
