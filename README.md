@@ -72,6 +72,14 @@ SQLALCHEMY_ECHO = False
 SQLALCHEMY_TRACK_MODIFICATIONS = False
 ```
 
+_Notes_ : You can Change the `SQLALCHEMY Database` to SQLite for example :
+
+```py
+SQLALCHEMY_DATABASE_URI = "sqlite:////tmp/test.db"
+```
+
+- Or check the [Flask-SQLAlchemy Configuration for more Connection URI Format](https://flask-sqlalchemy.palletsprojects.com/en/2.x/config/).
+
 ### Curl
 
 - [Curl](https://curl.se/) is used in command lines or scripts to transfer data.
